@@ -1,0 +1,89 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2021-04-06T17:27:04.029Z",
+        "line": 8,
+        "name": "Connexion",
+        "description": "",
+        "id": "orange-hrm-login;connexion",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 73284000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I launch chrome browser",
+            "match": {
+              "location": "stepDefinitions.OrangeHRMsteps.i_launch_chrome_browser()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4805067000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I open orange chrome hrm page",
+            "match": {
+              "location": "stepDefinitions.OrangeHRMsteps.i_open_orange_chrome_hrm_page()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1791304000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I insert the login mdp",
+            "match": {
+              "location": "stepDefinitions.OrangeHRMsteps.i_insert_the_login_mdp()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 888158000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I click to login button",
+            "match": {
+              "location": "stepDefinitions.OrangeHRMsteps.i_click_to_login_button()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2391750000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "message Ok is displayed",
+            "match": {
+              "location": "stepDefinitions.OrangeHRMsteps.message_ok_is_displayed()"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@smoketest"
+          }
+        ]
+      }
+    ],
+    "name": "Orange HRM Login",
+    "description": "",
+    "id": "orange-hrm-login",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/OrangeHRM.feature",
+    "tags": []
+  }
+]
