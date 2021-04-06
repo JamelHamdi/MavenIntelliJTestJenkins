@@ -60,13 +60,15 @@ public class SendAttachmentInEmail {
                     InternetAddress.parse(to));
 
             // Set Subject: header field
-            message.setSubject("Testing Subject");
+            message.setSubject("Testing Reports");
 
             // Create the message part
             BodyPart messageBodyPart = new MimeBodyPart();
 
             // Now set the actual message
-            messageBodyPart.setText("This is message body");
+            StringBuilder sb = new StringBuilder();
+            sb.append("Hi!, this is report for automation test SeleniumCucumber project<br><br>The link Report <a href=\"file:///Users/jamel/Desktop/_Users_jamel_IdeaProjects_SeleniumCucumber_src_test_JenkinsExtentReport.html\" ><button>Click me !</button></a>");
+            messageBodyPart.setText(sb.toString());
 
             // Create a multipar message
             Multipart multipart = new MimeMultipart();
