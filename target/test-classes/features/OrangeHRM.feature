@@ -4,7 +4,7 @@ Feature: Orange HRM Login
     When I open orange hrm page
     Then I verify that the logo presence on page
     And close browser
-
+  @smoketest
     Scenario: Connexion
       Given I launch chrome browser
       And I open orange chrome hrm page

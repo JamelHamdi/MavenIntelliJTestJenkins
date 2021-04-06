@@ -42,7 +42,6 @@ public class OrangeHRMsteps extends Conf{
     @Given("I open orange chrome hrm page")
     public void i_open_orange_chrome_hrm_page() {
         lunchBowser();
-
     }
     @When("I insert the login mdp")
     public void i_insert_the_login_mdp() {

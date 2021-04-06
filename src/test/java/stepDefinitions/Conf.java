@@ -4,6 +4,8 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import org.junit.After;
+import org.junit.Before;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -16,13 +18,14 @@ import java.io.Console;
 
 public class Conf {
     WebObjects obj = new WebObjects();
+    SendAttachmentInEmail sendEmail = new SendAttachmentInEmail();
 
     WebDriver driver;
     WebElement element = null;
     ExtentHtmlReporter report = new ExtentHtmlReporter("./src/test/JenkinsExtentReport.html");;//("./src/test/"+System.currentTimeMillis()+"ExtentReport.html");
     ExtentReports extent = new ExtentReports();
 
-
+    @Before
     public void lunchBowser(){
         driver = new ChromeDriver();
         extent.attachReporter(report);
@@ -30,8 +33,10 @@ public class Conf {
         driver.get("https://gentlemensclubparis.com/");
         driver.manage().window().maximize();
     }
+    @After
     public void quitBrowser(){
         driver.quit();
+        sendEmail.sendEmail();
     }
     public void verifLogo(){
         String logo = "_desktop_logo";
