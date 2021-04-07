@@ -3,7 +3,66 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2021-04-06T17:59:07.535Z",
+        "start_timestamp": "2021-04-06T21:15:09.238Z",
+        "line": 2,
+        "name": "Logo presence on OrangeHRM home page",
+        "description": "",
+        "id": "orange-hrm-login;logo-presence-on-orangehrm-home-page",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 53607000,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "I launch chrome browser",
+            "match": {
+              "location": "stepDefinitions.OrangeHRMsteps.i_launch_chrome_browser()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4941940000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "I open orange hrm page",
+            "match": {
+              "location": "stepDefinitions.OrangeHRMsteps.i_open_orange_hrm_page()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 361271000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I verify that the logo presence on page",
+            "match": {
+              "location": "stepDefinitions.OrangeHRMsteps.i_verify_that_the_logo_presence_on_page()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 109814107000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "close browser",
+            "match": {
+              "location": "stepDefinitions.OrangeHRMsteps.close_browser()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2021-04-06T21:17:04.518Z",
         "line": 8,
         "name": "Connexion",
         "description": "",
@@ -13,7 +72,7 @@
         "steps": [
           {
             "result": {
-              "duration": 55047000,
+              "duration": 783000,
               "status": "passed"
             },
             "line": 9,
@@ -25,7 +84,7 @@
           },
           {
             "result": {
-              "duration": 4346189000,
+              "duration": 3759858000,
               "status": "passed"
             },
             "line": 10,
@@ -37,7 +96,7 @@
           },
           {
             "result": {
-              "duration": 1606749000,
+              "duration": 1248853000,
               "status": "passed"
             },
             "line": 11,
@@ -49,7 +108,7 @@
           },
           {
             "result": {
-              "duration": 1036812000,
+              "duration": 768532000,
               "status": "passed"
             },
             "line": 12,
@@ -61,7 +120,7 @@
           },
           {
             "result": {
-              "duration": 2493215000,
+              "duration": 12336357000,
               "status": "passed"
             },
             "line": 13,

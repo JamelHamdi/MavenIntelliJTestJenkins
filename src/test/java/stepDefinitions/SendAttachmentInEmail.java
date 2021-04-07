@@ -66,9 +66,10 @@ public class SendAttachmentInEmail {
             BodyPart messageBodyPart = new MimeBodyPart();
 
             // Now set the actual message
-            StringBuilder sb = new StringBuilder();
-            sb.append("Hi!, this is report for automation test SeleniumCucumber project<br><br>The link Report <a href=\"file:///Users/jamel/Desktop/_Users_jamel_IdeaProjects_SeleniumCucumber_src_test_JenkinsExtentReport.html\" ><button>Click me !</button></a>");
-            messageBodyPart.setText(sb.toString());
+            String messageBody ="Hi!, this is report for automation test project : SeleniumCucumber.";
+            String linkReport ="Click here to open the result report.";
+            messageBody = "<h2>" + messageBody + "</h2>\n<a href=\"http://localhost:63342/SeleniumCucumber/src/test/JenkinsExtentReport.html?_ijt=hvujaq19dalnr61frevpoocu0l\" >"+linkReport+"</a>";
+            messageBodyPart.setContent(messageBody,"text/html");
 
             // Create a multipar message
             Multipart multipart = new MimeMultipart();

@@ -11,4 +11,9 @@ public class WebObjects {
     public By _mdp = By.xpath("//input[@name='password']");
     public By _btnCnx = By.id("submit-login");
 
+    public By _allProducts = By.xpath("//a[@class='all-product-link float-xs-left pull-md-right h4']");
+    public By _pageAllproducts = By.xpath("//div[@class='col-md-5 hidden-sm-down total-products']");
+    public By _filterIcon = By.xpath("//i[@class='material-icons float-xs-right']");
+    public By _filterOption = By.xpath("//i[@class='material-icons float-xs-right']");
+
 }
