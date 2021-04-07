@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import io.cucumber.java.Scenario;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
@@ -19,7 +20,6 @@ import java.io.Console;
 public class Conf {
     WebObjects obj = new WebObjects();
     SendAttachmentInEmail sendEmail = new SendAttachmentInEmail();
-
     WebDriver driver;
     WebElement element = null;
     ExtentHtmlReporter report = new ExtentHtmlReporter("./src/test/JenkinsExtentReport.html");;//("./src/test/"+System.currentTimeMillis()+"ExtentReport.html");
@@ -50,16 +50,32 @@ public class Conf {
             element = driver.findElement(accessibility);
             extent.attachReporter(report);
             ExtentTest test = extent.createTest(step, element.getText());
-            test.log(Status.INFO, accessibility+ " is displayed");
-            test.log(Status.PASS, accessibility+ " element success");
+            test.log(Status.INFO, accessibility+ " : is displayed");
+            test.log(Status.PASS, accessibility+ " : Element success");
             test.getStatus();
         }
         catch (WebDriverException ex){
             ExtentTest test = extent.createTest(step, "Failed Find Element");
-            test.log(Status.FAIL,  accessibility+ " Element is not displayed");
+            test.log(Status.FAIL,  accessibility+ " : Element is not displayed");
 
         }
         extent.flush();
         return element;
+    }
+
+    //methode click al products
+    public void clickAllproducts(){
+        FindBy(obj._allProducts , "Click All products button").click();
+    }
+    //verif page all products
+    public void verifPageAllProducts(){
+        boolean status = FindBy(obj._pageAllproducts," Page All products").isDisplayed();
+        Assert.assertEquals(true,status);
+    }
+    //method choose Option
+    public void choosefilterOption() throws InterruptedException {
+        FindBy(obj._filterIcon,"Click to filter icon").click();
+        FindBy(obj._filterOption,"Click filter option");
+        Thread.sleep(3000);
     }
 }
