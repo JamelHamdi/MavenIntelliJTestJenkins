@@ -18,8 +18,7 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
 public class SendAttachmentInEmail {
-
-    public void sendEmail(){
+    public void sendEmail(String scenarioName){
         // Recipient's email ID needs to be mentioned.
         String to = "intelodjo@gmail.com";
 
@@ -68,7 +67,7 @@ public class SendAttachmentInEmail {
             // Now set the actual message
             String messageBody ="Hi!, this is report for automation test project : SeleniumCucumber.";
             String linkReport ="Click here to open the result report.";
-            messageBody = "<h2>" + messageBody + "</h2>\n<a href=\"http://localhost:63342/SeleniumCucumber/src/test/JenkinsExtentReport.html?_ijt=hvujaq19dalnr61frevpoocu0l\" >"+linkReport+"</a>";
+            messageBody = "<h2>" + messageBody + "</h2>\n<a href=\"http://localhost:63342/SeleniumCucumber/src/test/JenkinsExtentReport_"+scenarioName+".html\" >"+linkReport+"</a>";
             messageBodyPart.setContent(messageBody,"text/html");
 
             // Create a multipar message
@@ -79,7 +78,7 @@ public class SendAttachmentInEmail {
 
             // Part two is attachment
             messageBodyPart = new MimeBodyPart();
-            String filename = "/Users/jamel/IdeaProjects/SeleniumCucumber/src/test/JenkinsExtentReport.html";
+            String filename = "/Users/jamel/IdeaProjects/SeleniumCucumber/src/test/JenkinsExtentReport_"+scenarioName+".html";
             DataSource source = new FileDataSource(filename);
             messageBodyPart.setDataHandler(new DataHandler(source));
             messageBodyPart.setFileName(filename);

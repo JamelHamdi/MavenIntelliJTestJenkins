@@ -4,7 +4,6 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import io.cucumber.java.Scenario;
 import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.By;
@@ -15,34 +14,33 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import pageObjects.WebObjects;
 
-import java.io.Console;
-
 public class Conf {
     WebObjects obj = new WebObjects();
     SendAttachmentInEmail sendEmail = new SendAttachmentInEmail();
     WebDriver driver;
     WebElement element = null;
-    ExtentHtmlReporter report = new ExtentHtmlReporter("./src/test/JenkinsExtentReport.html");;//("./src/test/"+System.currentTimeMillis()+"ExtentReport.html");
+    String scenarioName = this.getClass().getSimpleName();
+    ExtentHtmlReporter report = new ExtentHtmlReporter("./src/test/JenkinsExtentReport_"+scenarioName+".html");//("./src/test/"+System.currentTimeMillis()+"ExtentReport.html");
     ExtentReports extent = new ExtentReports();
 
     @Before
     public void lunchBowser(){
         driver = new ChromeDriver();
         extent.attachReporter(report);
-        ExtentTest test = extent.createTest("Browser chrome", " The browser is luanched");
+        extent.createTest("Scenario name : "+scenarioName, " The browser chrome is luanched");
         driver.get("https://gentlemensclubparis.com/");
         driver.manage().window().maximize();
     }
     @After
     public void quitBrowser(){
         driver.quit();
-        sendEmail.sendEmail();
+        sendEmail.sendEmail(scenarioName);
     }
     public void verifLogo(){
         String logo = "_desktop_logo";
         FindBy(By.xpath(logo), By.xpath(logo).getClass().getName());
         boolean status = driver.findElement(By.id(logo)).isDisplayed();
-        Assert.assertEquals(true,status);
+        Assert.assertTrue(status);
     }
     //Method Findby return element
     public WebElement FindBy(By accessibility, String step){
@@ -70,7 +68,7 @@ public class Conf {
     //verif page all products
     public void verifPageAllProducts(){
         boolean status = FindBy(obj._pageAllproducts," Page All products").isDisplayed();
-        Assert.assertEquals(true,status);
+        Assert.assertTrue(status);
     }
     //method choose Option
     public void choosefilterOption() throws InterruptedException {
